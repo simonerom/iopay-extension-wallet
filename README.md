@@ -1,8 +1,6 @@
-# extension-beancount-wallet
+# ioPay extension wallet
 
-extension-beancount-wallet is a wallet extension living in your chrome.
-
-It is still in development, if you are interested, please see [v1 roadmap](https://github.com/puncsky/extension-beancount-wallet/issues/2).
+ioPay extension wallet is a wallet you can use with your browser. 
 
 ## Development
 
@@ -16,3 +14,6 @@ It is still in development, if you are interested, please see [v1 roadmap](https
    3. Click on `Load unpacked extension`
    4. Select the `build` folder.
 6. Happy hacking.
+
+
+based on extension-beancount-wallet https://github.com/puncsky/extension-beancount-wallet
