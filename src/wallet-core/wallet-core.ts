@@ -4,7 +4,9 @@ import {
   IActionInfo,
   IAccountMeta,
 } from "iotex-antenna/lib/rpc-method/types";
+import { toRau } from "iotex-antenna/lib/account/utils";
 import { XRC20 } from "iotex-antenna/lib/token/xrc20";
+import { BigNumber } from "bignumber.js";
 import SafeEventEmitter from "@metamask/safe-event-emitter";
 
 import { AntennaAccount } from "./antenna-account";
@@ -247,7 +249,7 @@ export class WalletCore extends SafeEventEmitter {
   async xrc20List(payload: {
     address: string;
     providerUrl: string;
-    xrc20: string[];
+    xrc20: { name: string; url: string }[];
   }) {
     const acc = this.getAccount(payload.address) as AntennaAccount;
     if (!acc) {
@@ -261,14 +263,15 @@ export class WalletCore extends SafeEventEmitter {
       decimals: any;
     }[] = [];
     const tokens = payload.xrc20.map(
-      (url) => new XRC20(url, { provider: acc.antenna.iotx })
+      (e) => new XRC20(e.url, { provider: acc.antenna.iotx })
     );
 
     try {
       /* eslint no-await-in-loop: 0 */
       for (let i = 0; i < tokens.length; i += 1) {
         const token = tokens[i];
-        const name = await token.name();
+        const { name } = payload.xrc20[i];
+        // const name = await token.name();
         const symbol = await token.symbol();
         const balance = await token.balanceOf(payload.address);
         const decimals = await token.decimals();
@@ -279,6 +282,34 @@ export class WalletCore extends SafeEventEmitter {
     }
 
     return result;
+  }
+
+  async xrc20Transfer(payload: {
+    from: string;
+    to: string;
+    value: string;
+    gasPrice: string;
+    gasLimit: string;
+    providerUrl: string;
+    xrc20Address: string;
+  }) {
+    const acc = this.getAccount(payload.from) as AntennaAccount;
+    if (!acc) {
+      throw new Error("can find out account");
+    }
+    acc.setProvider(payload.providerUrl);
+    const token = new XRC20(payload.xrc20Address, {
+      provider: acc.antenna.iotx,
+    });
+    await token.transfer(
+      payload.to,
+      new BigNumber(toRau(payload.value, "IOTX"), 10),
+      {
+        account: acc.antenna.iotx.accounts[0],
+        gasPrice: `${payload.gasPrice}`,
+        gasLimit: `${payload.gasLimit}`,
+      }
+    );
   }
 
   // transfer token

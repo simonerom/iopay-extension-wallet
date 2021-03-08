@@ -25,7 +25,7 @@ export const TransferTokenForm: React.FC<Props> = (props: Props) => {
         className="transferForm"
       >
         <RecipienInput />
-        <AssetSelect />
+        <AssetSelect form={form} />
         <AmountInput />
         <TransactionFeeInput form={form} />
         <Form.Item>
