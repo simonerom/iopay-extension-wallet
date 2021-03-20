@@ -3,25 +3,23 @@ import { styled } from "onefx/lib/styletron-react";
 import { withRouter } from "react-router-dom";
 import Button from "antd/lib/button";
 import { Logo } from "@/styles/logo";
+import { CommonMargin } from "@/styles/common-margin";
 import { fonts } from "@/styles/style-font";
+import { useTranslation } from "react-i18next";
 
 export const Welcome = withRouter(({ history }) => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <Logo margin={80} />
+      <Logo />
+      <CommonMargin />
       <Title
         style={{
           textAlign: "center",
-          marginTop: "22px",
-          fontSize: "24px",
-          fontWeight: 600,
-          lineHeight: "33px",
-          marginBottom: "22px",
         }}
-      >
-        Welcome to <br />
-        ioPay Wallet for Chrome
-      </Title>
+        dangerouslySetInnerHTML={{ __html: t("welcome") }}
+      ></Title>
+      <CommonMargin />
       <Paragraph>
         Connecting you to IoTeX and the
         <br />
@@ -31,7 +29,7 @@ export const Welcome = withRouter(({ history }) => {
       </Paragraph>
       <div
         style={{
-          marginTop: "150px",
+          marginTop: "50px",
           display: "flex",
           justifyContent: "space-between",
         }}
@@ -70,5 +68,4 @@ const Title = styled("h1", {
 const Paragraph = styled("div", {
   ...fonts.normal,
   textAlign: "center",
-  lineHeight: "22px",
 });
