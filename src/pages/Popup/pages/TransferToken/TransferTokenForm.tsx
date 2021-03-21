@@ -4,6 +4,7 @@ import { styled } from "onefx/lib/styletron-react";
 import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 import Button from "antd/lib/button";
+import { useTranslation } from "react-i18next";
 import { AssetSelect } from "./AssetSelect";
 import { TransactionFeeInput } from "./TransactionFeeInput";
 import { AmountInput } from "./AmountInput";
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export const TransferTokenForm: React.FC<Props> = (props: Props) => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
   return (
     <Container>
@@ -32,12 +34,12 @@ export const TransferTokenForm: React.FC<Props> = (props: Props) => {
           <Row justify="space-between">
             <Col>
               <Button size="large" onClick={props.onCancel}>
-                Cancel
+                {t("cancel")}
               </Button>
             </Col>
             <Col>
               <Button type="primary" htmlType="submit" size="large">
-                Next
+                {t("next")}
               </Button>
             </Col>
           </Row>

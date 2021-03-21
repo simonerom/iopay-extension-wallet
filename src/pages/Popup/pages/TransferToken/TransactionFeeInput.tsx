@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Input from "antd/lib/input";
 import Form, { FormInstance } from "antd/lib/form";
 import Radio, { RadioChangeEvent } from "antd/lib/radio";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   form: FormInstance;
@@ -26,6 +27,7 @@ const gasOpts: Record<string, { gasLimit: number; gasPrice: number }> = {
 };
 
 export const TransactionFeeInput: React.FC<Props> = (props) => {
+  const { t } = useTranslation();
   const onChangeSpeed = (e: RadioChangeEvent) => {
     const setup = gasOpts[e.target.value] || gasOpts.average;
     props.form.setFields([
@@ -42,15 +44,15 @@ export const TransactionFeeInput: React.FC<Props> = (props) => {
   return (
     <Fragment>
       <Form.Item
-        label="Transaction Fee"
+        label={t("transaction_fee")}
         name="transactionFee"
         initialValue="average"
         rules={[{ required: true }]}
       >
         <Radio.Group size="large" onChange={onChangeSpeed}>
-          <Radio.Button value="slow">Slow</Radio.Button>
-          <Radio.Button value="average">Average</Radio.Button>
-          <Radio.Button value="fast">Fast</Radio.Button>
+          <Radio.Button value="slow">{t("slow")}</Radio.Button>
+          <Radio.Button value="average">{t("average")}</Radio.Button>
+          <Radio.Button value="fast">{t("fast")}</Radio.Button>
         </Radio.Group>
       </Form.Item>
 

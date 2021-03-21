@@ -6,8 +6,10 @@ import { styled } from "onefx/lib/styletron-react";
 import { defaultPostman } from "@/pages/Popup/postman";
 import { TransferTokenForm } from "./TransferTokenForm";
 import { Header } from "../Dashboard/components/Header";
+import { useTranslation } from "react-i18next";
 
 export const TransferToken = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
 
@@ -34,10 +36,10 @@ export const TransferToken = () => {
       await new Promise((resolve) => {
         setTimeout(resolve, 5500);
       });
-      message.success("Transfer Success");
+      message.success(t("transfer_success"));
       history.goBack();
     } catch (e) {
-      message.error("Transfer Failure");
+      message.error(t("transfer_failure"));
     } finally {
       setLoading(false);
     }
@@ -62,7 +64,7 @@ export const TransferToken = () => {
               fontWeight: 600,
             }}
           >
-            Send ETH
+            {t("send_eth")}
           </div>
           <Button
             type="link"
@@ -71,7 +73,7 @@ export const TransferToken = () => {
               fontSize: "16px",
             }}
           >
-            Cancel
+            {t("cancel")}
           </Button>
         </TitleBox>
         <div
@@ -91,7 +93,7 @@ export const TransferToken = () => {
       </Container>
       <AlertBox>
         <Alert
-          message="New address detected! Click here to add to your address book."
+          message={t("new_address_detected")}
           type="info"
         />
       </AlertBox>

@@ -1,14 +1,16 @@
 import React from "react";
 import { styled } from "onefx/lib/styletron-react";
 import { Row, Col, Divider } from "antd";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   tokens: any[];
 };
 
 export const XRC20Tokens: React.FC<Props> = ({ tokens }) => {
+  const { t } = useTranslation();
   if (tokens.length === 0) {
-    return <Container>No Assets</Container>;
+    return <Container>{t("no_assets")}</Container>;
   }
 
   return (

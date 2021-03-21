@@ -7,6 +7,7 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import ScrollBar from "react-perfect-scrollbar";
 
 import { accountCurrent, appTabActiveKey } from "@/recoil";
+import { useTranslation } from "react-i18next";
 import { Title } from "./Title";
 import { Balance } from "./Balance";
 import { Header } from "./components/Header";
@@ -15,6 +16,7 @@ import { Tokens } from "./components/Tokens";
 
 const { TabPane } = Tabs;
 export const Dashboard = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const curAccount = useRecoilValue(accountCurrent);
   const [tabActiveKey, setTabActiveKey] = useRecoilState(appTabActiveKey);
@@ -33,7 +35,7 @@ export const Dashboard = () => {
             history.push("/transfer");
           }}
         >
-          Transfer
+          {t("transfer")}
         </Button>
       </ButtonGroups>
       <Tabs

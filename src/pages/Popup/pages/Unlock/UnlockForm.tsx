@@ -7,6 +7,7 @@ import Button from "antd/lib/button";
 
 import { Logo } from "@/styles/logo";
 import { fonts } from "@/styles/style-font";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   password: string;
@@ -17,6 +18,7 @@ type UnlockFormProps = {
 };
 
 export const UnlockForm: React.FC<UnlockFormProps> = ({ onFinish }) => {
+  const { t } = useTranslation();
   return (
     <Container>
       <Logo margin={80} />
@@ -28,7 +30,7 @@ export const UnlockForm: React.FC<UnlockFormProps> = ({ onFinish }) => {
           fontWeight: 600,
         }}
       >
-        Welcome Back!
+        {t("welcome_back")}
       </Title>
       <Form
         layout="vertical"
@@ -49,7 +51,7 @@ export const UnlockForm: React.FC<UnlockFormProps> = ({ onFinish }) => {
             size="large"
             style={{ width: "100%", marginTop: "148px" }}
           >
-            Unlock
+            {t("unlock")}
           </Button>
         </Form.Item>
       </Form>

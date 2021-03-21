@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "onefx/lib/styletron-react";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type Prop = {
   actHash: string;
@@ -25,6 +26,7 @@ export const ActivityDetailView: React.FC<Prop> = ({
   nonce,
   date,
 }) => {
+  const { t } = useTranslation();
   const history = useHistory();
   return (
     <Container>
@@ -35,35 +37,35 @@ export const ActivityDetailView: React.FC<Prop> = ({
       ></BackArrowButton>
       <Content>
         <Row>
-          <Label>Hash</Label>
+          <Label>{t("hash")}</Label>
           <Value>{actHash}</Value>
         </Row>
         <Row>
-          <Label>Date</Label>
+          <Label>{t("date")}</Label>
           <Value>{date}</Value>
         </Row>
         <Row>
-          <Label>From</Label>
+          <Label>{t("from")}</Label>
           <Value>{from}</Value>
         </Row>
         <Row>
-          <Label>To</Label>
+          <Label>{t("to")}</Label>
           <Value>{to}</Value>
         </Row>
         <Row>
-          <Label>Payload</Label>
+          <Label>{t("payload")}</Label>
           <Value>{payload}</Value>
         </Row>
         <Row>
-          <Label>Gas Limit</Label>
+          <Label>{t("gas_limit")}</Label>
           <Value>{gasLimit}</Value>
         </Row>
         <Row>
-          <Label>Gas Price</Label>
+          <Label>{t("gas_price")}</Label>
           <Value>{gasPrice}</Value>
         </Row>
         <Row>
-          <Label>Nonce</Label>
+          <Label>{t("nonce")}</Label>
           <Value>{nonce}</Value>
         </Row>
       </Content>

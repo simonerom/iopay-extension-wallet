@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Form, Input } from "antd";
+import { useTranslation } from "react-i18next";
 
 type Values = {
   password: string;
@@ -14,6 +15,7 @@ export type PasswordValidatorModalProps = {
 export const PasswordValidatorModal: React.FC<PasswordValidatorModalProps> = (
   props
 ) => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
   const onOk = async () => {
     const isOk = await form.validateFields();
@@ -24,7 +26,7 @@ export const PasswordValidatorModal: React.FC<PasswordValidatorModalProps> = (
   };
   return (
     <Modal
-      title="Validate Password"
+      title={t("validate_password")}
       visible={props.visible}
       onOk={onOk}
       onCancel={props.onCancel}
@@ -32,7 +34,7 @@ export const PasswordValidatorModal: React.FC<PasswordValidatorModalProps> = (
       <Form<Values> form={form}>
         <Form.Item name="password" rules={[{ required: true }]}>
           <Input
-            placeholder="Please input your password"
+            placeholder={t("input_password")}
             type="password"
           ></Input>
         </Form.Item>

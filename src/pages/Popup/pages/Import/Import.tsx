@@ -5,6 +5,7 @@ import { Form, Input, Button, Row, Col } from "antd";
 import { Logo } from "@/styles/logo";
 import { CommonMargin } from "@/styles/common-margin";
 import { fonts } from "@/styles/style-font";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   password: string;
@@ -17,26 +18,27 @@ type ImportProps = {
 };
 
 export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
+  const { t } = useTranslation();
   return (
     <Container>
       <Logo margin={80} />
       <CommonMargin />
-      <Title>Import</Title>
+      <Title>{t("import")}</Title>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ key: "" }}>
         <Form.Item
-          label="Private Key"
+          label={t("private_key")}
           name="key"
           rules={[
-            { required: true, message: "Please input your Private Key!" },
+            { required: true, message: t("input_private_key") },
           ]}
         >
           <Input.Password size="large" />
         </Form.Item>
         <Form.Item
-          label="New Password"
+          label={t("new_password")}
           name="password"
           rules={[
-            { required: true, message: "Please input your New Password!" },
+            { required: true, message: t("input_new_password") },
             () => ({
               validator(_, value) {
                 if (
@@ -48,7 +50,7 @@ export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
                 ) {
                   return Promise.reject(
                     new Error(
-                      "Passwords must consist of letters and numbers and be longer than 6"
+                      t("password_error")
                     )
                   );
                 }
@@ -68,12 +70,12 @@ export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
           <Row justify="space-between">
             <Col>
               <Button htmlType="button" size="large" onClick={onCancel}>
-                Cancel
+                {t("cancel")}
               </Button>
             </Col>
             <Col>
               <Button type="primary" htmlType="submit" size="large">
-                Import
+                {t("import")}
               </Button>
             </Col>
           </Row>
