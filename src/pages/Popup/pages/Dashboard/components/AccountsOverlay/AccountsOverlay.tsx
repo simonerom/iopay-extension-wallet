@@ -14,6 +14,7 @@ import { fonts } from "@/styles/style-font";
 import { LeanAccount } from "@/wallet-core";
 import { AccountItem } from "./AccountItem";
 import { MenuItem } from "./MenuItem";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   accounts: LeanAccount[];
@@ -37,14 +38,14 @@ export const AccountsOverlay: React.FC<Props> = ({
   const [text, setText] = useState("");
   const reg = new RegExp(text);
   const items = accounts.filter((acc) => reg.test(acc.name));
-
+  const { t } = useTranslation();
   return (
     <Container>
       <FlexContainer>
         <MyAccountsText>My Accounts</MyAccountsText>
         <LockButtonContainer>
           <Button type="default" ghost block size="small" onClick={onLock}>
-            Lock
+            {t("lock")}
           </Button>
         </LockButtonContainer>
       </FlexContainer>
@@ -55,7 +56,7 @@ export const AccountsOverlay: React.FC<Props> = ({
         <SearchIcon />
         <div style={{ flexGrow: 1 }}>
           <SearchInput
-            placeholder="Search Accounts"
+            placeholder={t("search_accounts")}
             bordered={false}
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -84,14 +85,14 @@ export const AccountsOverlay: React.FC<Props> = ({
 
       <MenuItem
         icon={() => <PlusIcon />}
-        content="Create Account"
+        content={t("create_account")}
         onClick={onAddAccount}
       />
 
       <MenuItem
         icon={() => <DownloadIcon />}
         onClick={onImportAccount}
-        content="Import Account"
+        content={t("import_account")}
       />
 
       {/* <MenuItem icon={() => <ApiIcon />} content="Connect Hardware Wallet" /> */}
@@ -101,7 +102,7 @@ export const AccountsOverlay: React.FC<Props> = ({
       <MenuItem
         onClick={onInfoHelp}
         icon={() => <ExclamationIcon />}
-        content="Info & Help"
+        content={t("info_help")}
       />
 
       {/* <MenuItem icon={() => <SettingIcon />} content="Settings" /> */}

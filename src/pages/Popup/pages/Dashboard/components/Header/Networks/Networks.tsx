@@ -2,8 +2,6 @@ import React from "react";
 
 import { styled } from "onefx/lib/styletron-react";
 import { Select } from "antd";
-import Menu from "antd/lib/menu";
-import CheckOutlined from "@ant-design/icons/CheckOutlined";
 import { INetworkItem } from "@/config/networks";
 
 const { Option } = Select;

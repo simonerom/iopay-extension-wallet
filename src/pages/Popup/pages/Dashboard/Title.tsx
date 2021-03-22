@@ -12,6 +12,7 @@ import {
 } from "@/recoil";
 
 import { PasswordValidatorModal } from "@/pages/Popup/components/password-validator-modal";
+import { useTranslation } from "react-i18next";
 import { AccountDetail } from "./components/AccountDetail";
 
 type AccountTitleProps = {
@@ -34,13 +35,15 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
   const [address, setAddress] = useRecoilState(accountAddress);
   const currentAccount = useRecoilValue(accountCurrent);
 
+  const { t } = useTranslation();
+
   const onIotexscan = useCallback(() => {
     window.open(`${network.iotexscan}/address/${account.address}`);
   }, [account.address, network.uri]);
 
   const onRemoveAccount = useCallback(async () => {
     if (accountItems.length <= 1) {
-      message.info("You only have one account now");
+      message.info(t("have_one_account"));
       return;
     }
     setModalVisible(true);
@@ -80,7 +83,7 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
       setPrivatekeyModalVisible(false);
       defaultPostman.exportPrivateKey(address).then((privatekey) => {
         Modal.confirm({
-          title: "Private Key",
+          title: t("private_key"),
           content: (
             <Typography.Paragraph copyable={{ text: privatekey }}>
               {privatekey}
@@ -90,7 +93,7 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
         });
       });
     } else {
-      message.error("The password that you entered is incorrect");
+      message.error(t("password_incorrect"));
     }
   };
 
@@ -102,9 +105,9 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
       setAccountItems(accounts);
       setAddress(accounts[0].address);
       setModalVisible(false);
-      message.success("remove account success");
+      message.success(t("remove_account_success"));
     } else {
-      message.error("The password that you entered is incorrect");
+      message.error(t("password_incorrect"));
     }
   };
 
@@ -137,9 +140,9 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
           trigger={["click"]}
           overlay={
             <Menu onClick={onClick}>
-              <Menu.Item key="view">View on IoTeXScan</Menu.Item>
-              <Menu.Item key="detail">Account Detail</Menu.Item>
-              <Menu.Item key="remove">Remove Account</Menu.Item>
+              <Menu.Item key="view">{t("view_on_iotexscan")}</Menu.Item>
+              <Menu.Item key="detail">{t("account_detail")}</Menu.Item>
+              <Menu.Item key="remove">{t("remove_account")}</Menu.Item>
             </Menu>
           }
         >

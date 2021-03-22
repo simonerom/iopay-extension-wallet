@@ -7,6 +7,7 @@ import { defaultPostman } from "@/pages/Popup/postman";
 
 import { accountAddress, accountsList } from "@/recoil";
 import { CreatePasswordForm } from "./CreatePasswordForm";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   newPassword: string;
@@ -15,11 +16,12 @@ type FormValues = {
 };
 
 export const CreatePassword = withRouter(({ history }) => {
+  const { t } = useTranslation();
   const setAddress = useSetRecoilState(accountAddress);
   const setAccounts = useSetRecoilState(accountsList);
   const onFinish = async (values: FormValues) => {
     if (values.newPassword !== values.confirmPassword) {
-      message.error("Password and Confirm Password should be the same");
+      message.error(t("password_same"));
       return;
     }
     await defaultPostman.createPassword(values.newPassword);

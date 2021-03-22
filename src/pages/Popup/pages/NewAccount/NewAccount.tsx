@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import { Logo } from "@/styles/logo";
 import { CommonMargin } from "@/styles/common-margin";
 import { fonts } from "@/styles/style-font";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   name: string;
@@ -23,28 +24,29 @@ type NewAccountProps = {
 };
 
 export const NewAccount: React.FC<NewAccountProps> = ({ onFinish, mode }) => {
+  const { t } = useTranslation();
   const history = useHistory();
   return (
     <Container>
       <Logo />
       <CommonMargin />
-      <Title>New Account</Title>
+      <Title>{t("new_account")}</Title>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ key: "" }}>
         <Form.Item
-          label="Account Name"
+          label={t("account_name")}
           name="name"
           rules={[
-            { required: true, message: "Please input your Account Name" },
+            { required: true, message: t("input_account_name") },
           ]}
         >
           <Input size="large" />
         </Form.Item>
         {mode === "import" ? (
           <Form.Item
-            label="Private Key"
+            label={t("private_key")}
             name="privateKey"
             rules={[
-              { required: true, message: "Please input your Private Key" },
+              { required: true, message: t("input_private_key") },
             ]}
           >
             <Input.Password size="large" />
@@ -59,7 +61,7 @@ export const NewAccount: React.FC<NewAccountProps> = ({ onFinish, mode }) => {
             </Col>
             <Col>
               <Button size="large" onClick={() => history.goBack()}>
-                Cancel
+                {t("cancel")}
               </Button>
             </Col>
           </Row>

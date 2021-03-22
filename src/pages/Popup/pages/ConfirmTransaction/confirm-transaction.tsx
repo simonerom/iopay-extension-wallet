@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "onefx/lib/styletron-react";
 import { Space, Button, Row, Col } from "antd";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   amount: string;
@@ -12,30 +13,31 @@ type Props = {
 };
 
 export const ConfirmTransactionComponent = function (props: Props) {
+  const { t } = useTranslation();
   return (
     <Container>
-      <Title>Action Signing</Title>
+      <Title>{t("action_signing")}</Title>
       <Content>
         <Row>
-          <Col span={8}>Amount</Col>
+          <Col span={8}>{t("amount")}</Col>
           <Col>{props.amount}</Col>
         </Row>
         <Row>
-          <Col span={8}>To Contract</Col>
+          <Col span={8}>{t("to_contract")}</Col>
           <Col>{props.toContract}</Col>
         </Row>
         <Row>
-          <Col span={8}>Gas Limit</Col>
+          <Col span={8}>{t("gas_limit")}</Col>
           <Col>{props.gasLimit}</Col>
         </Row>
         <Row>
-          <Col span={8}>Gas Price</Col>
+          <Col span={8}>{t("gas_price")}</Col>
           <Col>{props.gasPrice}</Col>
         </Row>
       </Content>
       <Space>
         <Button type="primary" onClick={props.onConfirm}>
-          Yes, Sign Action
+          {t("yes_sign_action")}
         </Button>
         <Button onClick={props.onCancel}>No, Cancel</Button>
       </Space>

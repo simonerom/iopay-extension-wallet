@@ -2,8 +2,10 @@ import React from "react";
 import { styled } from "onefx/lib/styletron-react";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const About = function () {
+  const { t } = useTranslation();
   const history = useHistory();
   const onBack = React.useCallback(() => {
     history.goBack();
@@ -11,22 +13,21 @@ export const About = function () {
   return (
     <Container>
       <BackArrowButton onClick={onBack}></BackArrowButton>
-      <Title>ioPay Extension Wallet</Title>
+      <Title>{t("iopay_extension_wallet")}</Title>
       <Version>0.3.0</Version>
-      <Description>ioPay Extension Wallet.</Description>
+      <Description>{t("iopay_extension_wallet")}.</Description>
       <Links>
         <a href="https://beancount.io/page/legal/privacy-policy/">
-          Privacy Policy
+          {t("privacy_policy")}
         </a>
         <a href="https://beancount.io/page/legal/terms-of-service/">
-          Terms of Use
+          {t("terms_of_use")}
         </a>
-        <a href="https://beancount.io/">Visit our web site</a>
-        <a href="https://t.me/beancount">Contact us</a>
+        <a href="https://beancount.io/">{t("visit_website")}</a>
+        <a href="https://t.me/beancount">{t("contact_us")}</a>
       </Links>
       <Description>
-        Thanks <a href="https://stargately.com/">Stargately team</a> for their
-        special contribution to this wallet.
+        {t("thanks")} <a href="https://stargately.com/">{t("stargately_team")}</a> {t("special_contribution")}
       </Description>
     </Container>
   );

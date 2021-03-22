@@ -4,6 +4,7 @@ import Row from "antd/lib/grid/row";
 import Col from "antd/lib/grid/col";
 import Form, { FormInstance } from "antd/lib/form";
 import { formItemLayout } from "./formStyles";
+import { useTranslation } from "react-i18next";
 
 const { Option } = Select;
 
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export const AssetSelect: React.FC<Props> = (props) => {
+  const { t } = useTranslation();
   const onChange = (value: string) => {
     props.form.setFields([
       {
@@ -23,7 +25,7 @@ export const AssetSelect: React.FC<Props> = (props) => {
   return (
     <Form.Item
       {...formItemLayout}
-      label="Asset"
+      label={t("asset")}
       name="asset"
       initialValue="IOTX"
     >

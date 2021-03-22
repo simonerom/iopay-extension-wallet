@@ -4,6 +4,7 @@ import { Form, Input, Button, Checkbox, Row, Col } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { CommonMargin } from "@/styles/common-margin";
 import { fonts } from "@/styles/style-font";
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   newPassword: string;
@@ -20,6 +21,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
   onFinish,
   onCancel,
 }) => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
 
@@ -31,7 +33,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         </Col>
       </Row>
       <Paragraph style={{ marginTop: 56 }}>
-        Secure your wallet with a password
+        {t("secure_wallet")}
       </Paragraph>
       <CommonMargin />
       <Form
@@ -46,10 +48,10 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         }}
       >
         <Form.Item
-          label="New Password"
+          label={t("new_password")}
           name="newPassword"
           rules={[
-            { required: true, message: "Please input your New Password!" },
+            { required: true, message: t("input_new_password") },
             () => ({
               validator(_, value) {
                 if (
@@ -61,7 +63,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                 ) {
                   return Promise.reject(
                     new Error(
-                      "Passwords must consist of letters and numbers and be longer than 6"
+                      t("password_error")
                     )
                   );
                 }
@@ -74,13 +76,13 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         </Form.Item>
 
         <Form.Item
-          label="Confirm Password"
+          label={t("confirm_password")}
           name="confirmPassword"
           dependencies={["newPassword"]}
           rules={[
             {
               required: true,
-              message: "Please input your Confirm Password!",
+              message: t("input_confirm_password"),
             },
             ({ getFieldValue }) => ({
               validator: async (_, value) => {
@@ -88,7 +90,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                   return;
                 }
                 throw new Error(
-                  "The two passwords that you entered do not match!"
+                  t("password_not_match")
                 );
               },
             }),
@@ -107,15 +109,15 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                 if (value) {
                   return;
                 }
-                throw new Error("Should accept agreement");
+                throw new Error(t("accept_agreement"));
               },
             },
           ]}
         >
           <Checkbox>
-            I have read and agree to the{" "}
+            {t("read_and_agree")}{" "}
             <a href="https://beancount.io/page/legal/terms-of-service/">
-              terms of service
+              {t("terms_of_service")}
             </a>
           </Checkbox>
         </Form.Item>

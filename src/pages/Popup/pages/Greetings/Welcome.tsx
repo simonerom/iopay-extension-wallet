@@ -21,11 +21,11 @@ export const Welcome = withRouter(({ history }) => {
       ></Title>
       <CommonMargin />
       <Paragraph>
-        Connecting you to IoTeX and the
+        {t("connect_iotex")}
         <br />
-        Decentralized Web.
+        {t("decentralized")}
         <br />
-        We’re happy to see you.
+        {t("see_you")}
       </Paragraph>
       <div
         style={{
@@ -40,7 +40,7 @@ export const Welcome = withRouter(({ history }) => {
             history.push("/import");
           }}
         >
-          Import
+          {t("import")}
         </Button>
         <Button
           type="primary"
@@ -49,7 +49,7 @@ export const Welcome = withRouter(({ history }) => {
             history.push("/createPassword");
           }}
         >
-          Create
+          {t("create")}
         </Button>
       </div>
     </Container>
