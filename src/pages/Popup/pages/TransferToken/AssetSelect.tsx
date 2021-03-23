@@ -25,7 +25,7 @@ export const AssetSelect: React.FC<Props> = (props) => {
   return (
     <Form.Item
       {...formItemLayout}
-      label={t("asset")}
+      label={t("title.label.asset")}
       name="asset"
       initialValue="IOTX"
     >

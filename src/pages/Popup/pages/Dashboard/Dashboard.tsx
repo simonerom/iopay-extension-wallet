@@ -35,7 +35,7 @@ export const Dashboard = () => {
             history.push("/transfer");
           }}
         >
-          {t("transfer")}
+          {t("action.type.transfer")}
         </Button>
       </ButtonGroups>
       <Tabs

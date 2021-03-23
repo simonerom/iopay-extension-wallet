@@ -20,8 +20,8 @@ const ExecutionItem: React.FC<Props> = (props) => {
     <Container onClick={() => props.onClick && props.onClick(props.action)}>
       <ItemContent>
         <OverView>
-          <Tag color="blue">{t("execution")}</Tag>
-          <ActStatus>{t("success")}</ActStatus>
+          <Tag color="blue">{t("render.key.execution")}</Tag>
+          <ActStatus>{t("render.value.success")}</ActStatus>
         </OverView>
         <DetailView>
           <Account>
@@ -29,7 +29,7 @@ const ExecutionItem: React.FC<Props> = (props) => {
             <span> IOTX</span>
           </Account>
           <Address>
-            <span>{t("contract")}: </span>
+            <span>{t("render.key.contract")}: </span>
             {ellipsis(execution!.contract)}
           </Address>
         </DetailView>
@@ -45,8 +45,8 @@ const TransferItem: React.FC<Props> = (props) => {
     <Container onClick={() => props.onClick && props.onClick(props.action)}>
       <ItemContent>
         <OverView>
-          <Tag color="blue">{t("transfer")}</Tag>
-          <ActStatus>{t("success")}</ActStatus>
+          <Tag color="blue">{t("render.key.transfer")}</Tag>
+          <ActStatus>{t("render.value.success")}</ActStatus>
         </OverView>
         <DetailView>
           <Account>
@@ -54,7 +54,7 @@ const TransferItem: React.FC<Props> = (props) => {
             <span> IOTX</span>
           </Account>
           <Address>
-            <span>{t("recipient")}: </span>
+            <span>{t("render.key.recipient")}: </span>
             {ellipsis(transfer!.recipient)}
           </Address>
         </DetailView>
@@ -70,16 +70,16 @@ const RestakeItem: React.FC<Props> = (props) => {
     <Container onClick={() => props.onClick && props.onClick(props.action)}>
       <ItemContent>
         <OverView>
-          <Tag color="blue">{t("restake")}</Tag>
-          <ActStatus>{t("success")}</ActStatus>
+          <Tag color="blue">{t("render.key.restake")}</Tag>
+          <ActStatus>{t("render.value.success")}</ActStatus>
         </OverView>
         <DetailView>
           <Account>
-            <span>{t("staked_duration")}: </span>
+            <span>{t("render.key.staked_duration")}: </span>
             <span>{stakeRestake?.stakedDuration}</span>
           </Account>
           <Address>
-            <span>{t("auto_stake")}: </span>
+            <span>{t("render.key.auto_stake")}: </span>
             <span>{String(stakeRestake?.autoStake)}</span>
           </Address>
         </DetailView>
@@ -95,19 +95,19 @@ const StakeItem: React.FC<Props> = (props) => {
     <Container onClick={() => props.onClick && props.onClick(props.action)}>
       <ItemContent>
         <OverView>
-          <Tag color="blue">{t("stake")}</Tag>
+          <Tag color="blue">{t("render.key.stake")}</Tag>
           <span>
-            <span>{t("staked_amount")}: </span>
+            <span>{t("render.key.staked_amount")}: </span>
             <span>{fromRau(stakeCreate!.stakedAmount, "IOTX")}</span>
           </span>
         </OverView>
         <DetailView>
           <Account>
-            <span>{t("staked_duration")}: </span>
+            <span>{t("render.key.staked_duration")}: </span>
             <span>{stakeCreate?.stakedDuration}</span>
           </Account>
           <Address>
-            <span>{t("candidate_name")}: </span>
+            <span>{t("render.key.candidate_name")}: </span>
             <span>{String(stakeCreate?.candidateName)}</span>
           </Address>
         </DetailView>

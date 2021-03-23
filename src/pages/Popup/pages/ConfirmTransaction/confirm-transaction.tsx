@@ -16,30 +16,30 @@ export const ConfirmTransactionComponent = function (props: Props) {
   const { t } = useTranslation();
   return (
     <Container>
-      <Title>{t("action_signing")}</Title>
+      <Title>{t("title.type.action_signing")}</Title>
       <Content>
         <Row>
-          <Col span={8}>{t("amount")}</Col>
+          <Col span={8}>{t("render.key.amount")}</Col>
           <Col>{props.amount}</Col>
         </Row>
         <Row>
-          <Col span={8}>{t("to_contract")}</Col>
+          <Col span={8}>{t("render.key.to_contract")}</Col>
           <Col>{props.toContract}</Col>
         </Row>
         <Row>
-          <Col span={8}>{t("gas_limit")}</Col>
+          <Col span={8}>{t("render.key.gas_limit")}</Col>
           <Col>{props.gasLimit}</Col>
         </Row>
         <Row>
-          <Col span={8}>{t("gas_price")}</Col>
+          <Col span={8}>{t("render.key.gas_price")}</Col>
           <Col>{props.gasPrice}</Col>
         </Row>
       </Content>
       <Space>
         <Button type="primary" onClick={props.onConfirm}>
-          {t("yes_sign_action")}
+          {t("action.type.sign_action")}
         </Button>
-        <Button onClick={props.onCancel}>No, Cancel</Button>
+        <Button onClick={props.onCancel}>{t("action.type.negative")}</Button>
       </Space>
     </Container>
   );

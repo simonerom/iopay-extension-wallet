@@ -37,35 +37,35 @@ export const ActivityDetailView: React.FC<Prop> = ({
       ></BackArrowButton>
       <Content>
         <Row>
-          <Label>{t("hash")}</Label>
+          <Label>{t("render.key.hash")}</Label>
           <Value>{actHash}</Value>
         </Row>
         <Row>
-          <Label>{t("date")}</Label>
+          <Label>{t("render.key.date")}</Label>
           <Value>{date}</Value>
         </Row>
         <Row>
-          <Label>{t("from")}</Label>
+          <Label>{t("render.key.from")}</Label>
           <Value>{from}</Value>
         </Row>
         <Row>
-          <Label>{t("to")}</Label>
+          <Label>{t("render.key.to")}</Label>
           <Value>{to}</Value>
         </Row>
         <Row>
-          <Label>{t("payload")}</Label>
+          <Label>{t("render.key.payload")}</Label>
           <Value>{payload}</Value>
         </Row>
         <Row>
-          <Label>{t("gas_limit")}</Label>
+          <Label>{t("render.key.gas_limit")}</Label>
           <Value>{gasLimit}</Value>
         </Row>
         <Row>
-          <Label>{t("gas_price")}</Label>
+          <Label>{t("render.key.gas_price")}</Label>
           <Value>{gasPrice}</Value>
         </Row>
         <Row>
-          <Label>{t("nonce")}</Label>
+          <Label>{t("render.key.nonce")}</Label>
           <Value>{nonce}</Value>
         </Row>
       </Content>

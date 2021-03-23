@@ -9,13 +9,13 @@ export const RecipienInput: React.FC = () => {
   return (
     <Form.Item
       name="recipient"
-      label={t("recipient_upper")}
+      label={t("title.label.recipient")}
       rules={[
-        { required: true, message: t("enter_recipient_address") },
+        { required: true, message: t("message.error.enter_recipient_address") },
         {
           validator: (_rule: RuleObject, value, callback) => {
             if (value && !validateAddress(value)) {
-              callback(t("recipient_address_invalid"));
+              callback(t("message.error.recipient_address"));
             } else {
               callback();
             }
@@ -23,7 +23,7 @@ export const RecipienInput: React.FC = () => {
         },
       ]}
     >
-      <Input size="large" placeholder={`${t("address")} (io...)`} />
+      <Input size="large" placeholder={`${t("placeholder.address")} (io...)`} />
     </Form.Item>
   );
 };

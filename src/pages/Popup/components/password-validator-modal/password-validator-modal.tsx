@@ -26,7 +26,7 @@ export const PasswordValidatorModal: React.FC<PasswordValidatorModalProps> = (
   };
   return (
     <Modal
-      title={t("validate_password")}
+      title={t("title.type.validate_password")}
       visible={props.visible}
       onOk={onOk}
       onCancel={props.onCancel}
@@ -34,7 +34,7 @@ export const PasswordValidatorModal: React.FC<PasswordValidatorModalProps> = (
       <Form<Values> form={form}>
         <Form.Item name="password" rules={[{ required: true }]}>
           <Input
-            placeholder={t("input_password")}
+            placeholder={t("placeholder.input_password")}
             type="password"
           ></Input>
         </Form.Item>

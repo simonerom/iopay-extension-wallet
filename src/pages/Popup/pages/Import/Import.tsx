@@ -23,22 +23,22 @@ export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
     <Container>
       <Logo margin={80} />
       <CommonMargin />
-      <Title>{t("import")}</Title>
+      <Title>{t("title.type.import")}</Title>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ key: "" }}>
         <Form.Item
-          label={t("private_key")}
+          label={t("title.type.private_key")}
           name="key"
           rules={[
-            { required: true, message: t("input_private_key") },
+            { required: true, message: t("message.error.input_private_key") },
           ]}
         >
           <Input.Password size="large" />
         </Form.Item>
         <Form.Item
-          label={t("new_password")}
+          label={t("title.label.new_password")}
           name="password"
           rules={[
-            { required: true, message: t("input_new_password") },
+            { required: true, message: t("message.error.input_new_password") },
             () => ({
               validator(_, value) {
                 if (
@@ -50,7 +50,7 @@ export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
                 ) {
                   return Promise.reject(
                     new Error(
-                      t("password_error")
+                      t("message.error.password_shortly")
                     )
                   );
                 }
@@ -70,12 +70,12 @@ export const Import: React.FC<ImportProps> = ({ onFinish, onCancel }) => {
           <Row justify="space-between">
             <Col>
               <Button htmlType="button" size="large" onClick={onCancel}>
-                {t("cancel")}
+                {t("action.type.cancel")}
               </Button>
             </Col>
             <Col>
               <Button type="primary" htmlType="submit" size="large">
-                {t("import")}
+                {t("action.type.import")}
               </Button>
             </Col>
           </Row>

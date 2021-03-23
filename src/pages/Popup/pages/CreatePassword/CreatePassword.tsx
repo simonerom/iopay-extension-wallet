@@ -21,7 +21,7 @@ export const CreatePassword = withRouter(({ history }) => {
   const setAccounts = useSetRecoilState(accountsList);
   const onFinish = async (values: FormValues) => {
     if (values.newPassword !== values.confirmPassword) {
-      message.error(t("password_same"));
+      message.error(t("message.error.password_same"));
       return;
     }
     await defaultPostman.createPassword(values.newPassword);

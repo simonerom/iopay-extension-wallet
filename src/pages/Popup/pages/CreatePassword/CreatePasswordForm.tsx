@@ -33,7 +33,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         </Col>
       </Row>
       <Paragraph style={{ marginTop: 56 }}>
-        {t("secure_wallet")}
+        {t("paragraph.secure_wallet")}
       </Paragraph>
       <CommonMargin />
       <Form
@@ -48,10 +48,10 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         }}
       >
         <Form.Item
-          label={t("new_password")}
+          label={t("title.label.new_password")}
           name="newPassword"
           rules={[
-            { required: true, message: t("input_new_password") },
+            { required: true, message: t("message.error.input_new_password") },
             () => ({
               validator(_, value) {
                 if (
@@ -63,7 +63,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                 ) {
                   return Promise.reject(
                     new Error(
-                      t("password_error")
+                      t("message.error.password_shortly")
                     )
                   );
                 }
@@ -76,13 +76,13 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
         </Form.Item>
 
         <Form.Item
-          label={t("confirm_password")}
+          label={t("title.label.confirm_password")}
           name="confirmPassword"
           dependencies={["newPassword"]}
           rules={[
             {
               required: true,
-              message: t("input_confirm_password"),
+              message: t("message.error.input_confirm_password"),
             },
             ({ getFieldValue }) => ({
               validator: async (_, value) => {
@@ -90,7 +90,7 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                   return;
                 }
                 throw new Error(
-                  t("password_not_match")
+                  t("message.error.password_not_match")
                 );
               },
             }),
@@ -109,15 +109,15 @@ export const CreatePasswordForm: React.FC<CreatePasswordProps> = ({
                 if (value) {
                   return;
                 }
-                throw new Error(t("accept_agreement"));
+                throw new Error(t("message.error.accept_agreement"));
               },
             },
           ]}
         >
           <Checkbox>
-            {t("read_and_agree")}{" "}
+            {t("title.label.read_and_agree")}{" "}
             <a href="https://beancount.io/page/legal/terms-of-service/">
-              {t("terms_of_service")}
+              {t("action.type.terms_of_service")}
             </a>
           </Checkbox>
         </Form.Item>
