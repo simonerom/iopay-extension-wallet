@@ -34,12 +34,12 @@ export const TransferTokenForm: React.FC<Props> = (props: Props) => {
           <Row justify="space-between">
             <Col>
               <Button size="large" onClick={props.onCancel}>
-                {t("cancel")}
+                {t("action.type.cancel")}
               </Button>
             </Col>
             <Col>
               <Button type="primary" htmlType="submit" size="large">
-                {t("next")}
+                {t("action.type.next")}
               </Button>
             </Col>
           </Row>

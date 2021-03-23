@@ -30,7 +30,7 @@ export const UnlockForm: React.FC<UnlockFormProps> = ({ onFinish }) => {
           fontWeight: 600,
         }}
       >
-        {t("welcome_back")}
+        {t("title.type.welcome_back")}
       </Title>
       <Form
         layout="vertical"
@@ -51,7 +51,7 @@ export const UnlockForm: React.FC<UnlockFormProps> = ({ onFinish }) => {
             size="large"
             style={{ width: "100%", marginTop: "148px" }}
           >
-            {t("unlock")}
+            {t("action.type.unlock")}
           </Button>
         </Form.Item>
       </Form>

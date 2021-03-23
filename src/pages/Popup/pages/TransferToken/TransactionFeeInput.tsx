@@ -44,15 +44,15 @@ export const TransactionFeeInput: React.FC<Props> = (props) => {
   return (
     <Fragment>
       <Form.Item
-        label={t("transaction_fee")}
+        label={t("title.label.transaction_fee")}
         name="transactionFee"
         initialValue="average"
         rules={[{ required: true }]}
       >
         <Radio.Group size="large" onChange={onChangeSpeed}>
-          <Radio.Button value="slow">{t("slow")}</Radio.Button>
-          <Radio.Button value="average">{t("average")}</Radio.Button>
-          <Radio.Button value="fast">{t("fast")}</Radio.Button>
+          <Radio.Button value="slow">{t("action.type.slow")}</Radio.Button>
+          <Radio.Button value="average">{t("action.type.average")}</Radio.Button>
+          <Radio.Button value="fast">{t("action.type.fast")}</Radio.Button>
         </Radio.Group>
       </Form.Item>
 

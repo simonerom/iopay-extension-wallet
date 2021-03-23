@@ -43,7 +43,7 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
 
   const onRemoveAccount = useCallback(async () => {
     if (accountItems.length <= 1) {
-      message.info(t("have_one_account"));
+      message.info(t("message.info.have_one_account"));
       return;
     }
     setModalVisible(true);
@@ -83,7 +83,7 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
       setPrivatekeyModalVisible(false);
       defaultPostman.exportPrivateKey(address).then((privatekey) => {
         Modal.confirm({
-          title: t("private_key"),
+          title: t("title.type.private_key"),
           content: (
             <Typography.Paragraph copyable={{ text: privatekey }}>
               {privatekey}
@@ -93,7 +93,7 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
         });
       });
     } else {
-      message.error(t("password_incorrect"));
+      message.error(t("message.error.password_incorrect"));
     }
   };
 
@@ -105,9 +105,9 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
       setAccountItems(accounts);
       setAddress(accounts[0].address);
       setModalVisible(false);
-      message.success(t("remove_account_success"));
+      message.success(t("message.success.remove_account"));
     } else {
-      message.error(t("password_incorrect"));
+      message.error(t("message.error.password_incorrect"));
     }
   };
 
@@ -140,9 +140,9 @@ export const Title: React.FC<AccountTitleProps> = ({ account }) => {
           trigger={["click"]}
           overlay={
             <Menu onClick={onClick}>
-              <Menu.Item key="view">{t("view_on_iotexscan")}</Menu.Item>
-              <Menu.Item key="detail">{t("account_detail")}</Menu.Item>
-              <Menu.Item key="remove">{t("remove_account")}</Menu.Item>
+              <Menu.Item key="view">{t("menu.item.view_on_iotexscan")}</Menu.Item>
+              <Menu.Item key="detail">{t("menu.item.account_detail")}</Menu.Item>
+              <Menu.Item key="remove">{t("menu.item.remove_account")}</Menu.Item>
             </Menu>
           }
         >

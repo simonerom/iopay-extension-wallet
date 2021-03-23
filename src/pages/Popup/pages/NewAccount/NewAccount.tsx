@@ -30,23 +30,23 @@ export const NewAccount: React.FC<NewAccountProps> = ({ onFinish, mode }) => {
     <Container>
       <Logo />
       <CommonMargin />
-      <Title>{t("new_account")}</Title>
+      <Title>{t("title.type.new_account")}</Title>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ key: "" }}>
         <Form.Item
-          label={t("account_name")}
+          label={t("title.label.account_name")}
           name="name"
           rules={[
-            { required: true, message: t("input_account_name") },
+            { required: true, message: t("message.error.input_account_name") },
           ]}
         >
           <Input size="large" />
         </Form.Item>
         {mode === "import" ? (
           <Form.Item
-            label={t("private_key")}
+            label={t("title.type.private_key")}
             name="privateKey"
             rules={[
-              { required: true, message: t("input_private_key") },
+              { required: true, message: t("message.error.input_private_key") },
             ]}
           >
             <Input.Password size="large" />
@@ -56,12 +56,12 @@ export const NewAccount: React.FC<NewAccountProps> = ({ onFinish, mode }) => {
           <Row justify="space-between">
             <Col>
               <Button type="primary" htmlType="submit" size="large">
-                {mode === "import" ? "Import" : "Create"}
+                {mode === "import" ? t("action.type.import") : t("action.type.create")}
               </Button>
             </Col>
             <Col>
               <Button size="large" onClick={() => history.goBack()}>
-                {t("cancel")}
+                {t("action.type.cancel")}
               </Button>
             </Col>
           </Row>

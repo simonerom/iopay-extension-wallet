@@ -10,7 +10,7 @@ type Props = {
 export const XRC20Tokens: React.FC<Props> = ({ tokens }) => {
   const { t } = useTranslation();
   if (tokens.length === 0) {
-    return <Container>{t("no_assets")}</Container>;
+    return <Container>{t("message.info.no_assets")}</Container>;
   }
 
   return (

@@ -23,7 +23,7 @@ export const Unlock = withRouter(({ history }) => {
         setAccounts(accounts);
         history.push("/dashboard");
       } else {
-        message.info(t("password_incorrect"));
+        message.info(t("message.error.password_incorrect"));
       }
     } finally {
       setLoading(false);

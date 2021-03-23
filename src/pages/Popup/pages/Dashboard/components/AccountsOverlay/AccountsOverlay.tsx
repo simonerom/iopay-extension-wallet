@@ -45,7 +45,7 @@ export const AccountsOverlay: React.FC<Props> = ({
         <MyAccountsText>My Accounts</MyAccountsText>
         <LockButtonContainer>
           <Button type="default" ghost block size="small" onClick={onLock}>
-            {t("lock")}
+            {t("action.type.lock")}
           </Button>
         </LockButtonContainer>
       </FlexContainer>
@@ -56,7 +56,7 @@ export const AccountsOverlay: React.FC<Props> = ({
         <SearchIcon />
         <div style={{ flexGrow: 1 }}>
           <SearchInput
-            placeholder={t("search_accounts")}
+            placeholder={t("placeholder.search_accounts")}
             bordered={false}
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -85,14 +85,14 @@ export const AccountsOverlay: React.FC<Props> = ({
 
       <MenuItem
         icon={() => <PlusIcon />}
-        content={t("create_account")}
+        content={t("menu.item.create_account")}
         onClick={onAddAccount}
       />
 
       <MenuItem
         icon={() => <DownloadIcon />}
         onClick={onImportAccount}
-        content={t("import_account")}
+        content={t("menu.item.import_account")}
       />
 
       {/* <MenuItem icon={() => <ApiIcon />} content="Connect Hardware Wallet" /> */}
@@ -102,7 +102,7 @@ export const AccountsOverlay: React.FC<Props> = ({
       <MenuItem
         onClick={onInfoHelp}
         icon={() => <ExclamationIcon />}
-        content={t("info_help")}
+        content={t("menu.item.info_help")}
       />
 
       {/* <MenuItem icon={() => <SettingIcon />} content="Settings" /> */}

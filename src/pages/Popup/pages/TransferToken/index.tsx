@@ -36,10 +36,10 @@ export const TransferToken = () => {
       await new Promise((resolve) => {
         setTimeout(resolve, 5500);
       });
-      message.success(t("transfer_success"));
+      message.success(t("message.success.transfer"));
       history.goBack();
     } catch (e) {
-      message.error(t("transfer_failure"));
+      message.error(t("message.error.transfer"));
     } finally {
       setLoading(false);
     }
@@ -64,7 +64,7 @@ export const TransferToken = () => {
               fontWeight: 600,
             }}
           >
-            {t("send_eth")}
+            {t("title.type.send_eth")}
           </div>
           <Button
             type="link"
@@ -73,7 +73,7 @@ export const TransferToken = () => {
               fontSize: "16px",
             }}
           >
-            {t("cancel")}
+            {t("action.type.cancel")}
           </Button>
         </TitleBox>
         <div
@@ -93,7 +93,7 @@ export const TransferToken = () => {
       </Container>
       <AlertBox>
         <Alert
-          message={t("new_address_detected")}
+          message={t("message.info.new_address_detected")}
           type="info"
         />
       </AlertBox>

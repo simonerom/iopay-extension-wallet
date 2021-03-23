@@ -7,12 +7,12 @@ export const AmountInput: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Form.Item
-      label={t("amount")}
+      label={t("title.label.amount")}
       name="amount"
       rules={[
         {
           required: true,
-          message: t("enter_amount_of_tokens"),
+          message: t("message.error.enter_tokens"),
         },
       ]}
     >

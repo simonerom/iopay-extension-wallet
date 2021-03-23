@@ -17,15 +17,15 @@ export const Welcome = withRouter(({ history }) => {
         style={{
           textAlign: "center",
         }}
-        dangerouslySetInnerHTML={{ __html: t("welcome") }}
+        dangerouslySetInnerHTML={{ __html: t("title.type.welcome") }}
       ></Title>
       <CommonMargin />
       <Paragraph>
-        {t("connect_iotex")}
+        {t("paragraph.connect_iotex")}
         <br />
-        {t("decentralized")}
+        {t("paragraph.decentralized")}
         <br />
-        {t("see_you")}
+        {t("paragraph.see_you")}
       </Paragraph>
       <div
         style={{
@@ -40,7 +40,7 @@ export const Welcome = withRouter(({ history }) => {
             history.push("/import");
           }}
         >
-          {t("import")}
+          {t('action.type.import')}
         </Button>
         <Button
           type="primary"
@@ -49,7 +49,7 @@ export const Welcome = withRouter(({ history }) => {
             history.push("/createPassword");
           }}
         >
-          {t("create")}
+          {t("action.type.create")}
         </Button>
       </div>
     </Container>

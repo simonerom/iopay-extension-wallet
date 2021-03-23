@@ -13,21 +13,21 @@ export const About = function () {
   return (
     <Container>
       <BackArrowButton onClick={onBack}></BackArrowButton>
-      <Title>{t("iopay_extension_wallet")}</Title>
+      <Title>{t("title.type.iopay_extension_wallet")}</Title>
       <Version>0.3.0</Version>
-      <Description>{t("iopay_extension_wallet")}.</Description>
+      <Description>{t("paragraph.iopay_extension_wallet")}.</Description>
       <Links>
         <a href="https://beancount.io/page/legal/privacy-policy/">
-          {t("privacy_policy")}
+          {t("action.type.privacy_policy")}
         </a>
         <a href="https://beancount.io/page/legal/terms-of-service/">
-          {t("terms_of_use")}
+          {t("action.type.terms_of_use")}
         </a>
-        <a href="https://beancount.io/">{t("visit_website")}</a>
-        <a href="https://t.me/beancount">{t("contact_us")}</a>
+        <a href="https://beancount.io/">{t("action.type.visit_website")}</a>
+        <a href="https://t.me/beancount">{t("action.type.contact_us")}</a>
       </Links>
       <Description>
-        {t("thanks")} <a href="https://stargately.com/">{t("stargately_team")}</a> {t("special_contribution")}
+        {t("paragraph.thanks")} <a href="https://stargately.com/">{t("action.type.stargately_team")}</a> {t("paragraph.special_contribution")}
       </Description>
     </Container>
   );
