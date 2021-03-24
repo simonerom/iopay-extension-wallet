@@ -1,5 +1,5 @@
 {
-  "title.type.welcome": "Welcome to <br /> Beancount Wallet",
+  "title.type.welcome": "Welcome to <br \/> Beancount Wallet",
   "title.type.import": "Import",
   "title.type.private_key": "Private Key",
   "title.type.new_account": "New Account",
@@ -8,7 +8,6 @@
   "title.type.iopay_extension_wallet": "ioPay Extension Wallet",
   "title.type.action_signing": "Action Signing",
   "title.type.validate_password": "Validate Password",
-
   "title.label.recipient": "Recipient",
   "title.label.new_password": "New Password",
   "title.label.account_name": "Account Name",
@@ -17,7 +16,6 @@
   "title.label.transaction_fee": "Transaction Fee",
   "title.label.confirm_password": "Confirm Password",
   "title.label.read_and_agree": "I have read and agree to the",
-
   "action.type.import": "Import",
   "action.type.create": "Create",
   "action.type.lock": "Lock",
@@ -36,10 +34,8 @@
   "action.type.sign_action": "Yes, Sign Action",
   "action.type.negative": "No, Cancel",
   "action.type.terms_of_service": "terms of service",
-
   "message.success.remove_account": "remove account success",
   "message.success.transfer": "Transfer Success",
-
   "message.error.password_incorrect": "The password that you entered is incorrect",
   "message.error.password_shortly": "Passwords must consist of letters and numbers and be longer than 6",
   "message.error.input_new_password": "Please input your New Password!",
@@ -53,11 +49,9 @@
   "message.error.input_confirm_password": "Please input your Confirm Password!",
   "message.error.password_not_match": "The two passwords that you entered do not match!",
   "message.error.accept_agreement": "Should accept agreement",
-
   "message.info.have_one_account": "You only have one account now",
   "message.info.no_assets": "No Assets",
   "message.info.new_address_detected": "New address detected! Click here to add to your address book.",
-
   "paragraph.connect_iotex": "Connecting you to IoTeX and the",
   "paragraph.decentralized": "Decentralized Web.",
   "paragraph.see_you": "We’re happy to see you.",
@@ -65,18 +59,15 @@
   "paragraph.thanks": "Thanks",
   "paragraph.special_contribution": "for their special contribution to this wallet.",
   "paragraph.secure_wallet": "Secure your wallet with a password",
-
   "menu.item.view_on_iotexscan": "View on IoTeXScan",
   "menu.item.account_detail": "Account Detail",
   "menu.item.remove_account": "Remove Account",
   "menu.item.create_account": "Create Account",
   "menu.item.import_account": "Import Account",
   "menu.item.info_help": "Info & Help",
-
   "placeholder.search_accounts": "Search Accounts",
   "placeholder.address": "Address",
   "placeholder.input_password": "Please input your password",
-
   "render.key.execution": "Execution",
   "render.key.contract": "contract",
   "render.key.transfer": "Transfer",
@@ -97,6 +88,5 @@
   "render.key.gas_price": "Gas Price",
   "render.key.nonce": "Nonce",
   "render.key.to_contract": "To Contract",
-
   "render.value.success": "Success"
 }
