@@ -13,7 +13,7 @@ const KEY_NAMES = "Background_KeyringController_KeyNames";
 const mainController = new MainController();
 
 extension.runtime.onInstalled.addListener(() => {
-  console.log("Beancount Wallet installed");
+  console.log("IoTeX Extension Wallet installed");
 });
 
 async function start() {
